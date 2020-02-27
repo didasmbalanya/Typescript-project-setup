@@ -1,0 +1,37 @@
+{
+  "name": "tembea",
+  "version": "1.0.0",
+  "description": "An application for managing trips at Andela",
+  "main": "src/index.ts",
+  "scripts": {
+    "tsc": "ts-node -r tsconfig-paths/register",
+    "build-server": "tsc -b tsconfig.build.json",
+    "start": "yarn tsc src/index.ts",
+    "start:dev": "NODE_ENV=development DEBUG=log nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela/tembea.git"
+  },
+  "keywords": [
+    "trips",
+    "travel"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andela/tembea/issues"
+  },
+  "homepage": "https://github.com/andela/tembea#readme",
+  "dependencies": {
+    "@slack/bolt": "^1.6.0",
+    "@types/cors": "^2.8.6",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.2"
+  }
+}
