@@ -7,7 +7,12 @@
     "tsc": "ts-node -r tsconfig-paths/register",
     "build-server": "tsc -b tsconfig.build.json",
     "start": "yarn tsc src/index.ts",
-    "start:dev": "NODE_ENV=development DEBUG=log nodemon"
+    "start:dev": "NODE_ENV=development DEBUG=log nodemon",
+    "sequelize": "ts-node node_modules/.bin/sequelize",
+    "db:migrate": "sequelize db:migrate",
+    "db:rollback": "yarn sequelize db:migrate:undo:all",
+    "db:rollmigrate": "yarn db:rollback && yarn db:migrate",
+    "upload:weeklyTemp": "yarn tsc src/scripts/uploadWeeklyTemplate.ts"
   },
   "repository": {
     "type": "git",
@@ -21,15 +26,26 @@
   "license": "MIT",
   "dependencies": {
     "@slack/bolt": "^1.6.0",
+    "@types/bluebird": "^3.5.29",
     "@types/cors": "^2.8.6",
+    "@types/node": "^13.7.6",
+    "@types/validator": "^12.0.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "dotenv-extended": "^2.7.1",
     "express": "^4.17.1",
     "nodemon": "^2.0.2",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^5.21.5",
+    "sequelize-typescript": "^1.1.0",
     "ts-node": "^8.6.2",
     "tslint": "^6.0.0",
     "tslint-config-airbnb": "^5.11.2",
     "typescript": "^3.8.2"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^5.5.1"
   }
 }
